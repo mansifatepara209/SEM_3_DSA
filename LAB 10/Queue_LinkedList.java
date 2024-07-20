@@ -1,4 +1,3 @@
-
 //FIFO(First In First Out)
 //insert at first and delete at last
 
@@ -77,7 +76,6 @@ public class Queue_LinkedList {
             if (c == 4) {
                 break;
             }
-
         }
     }
 }
