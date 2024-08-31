@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class CountingSort {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a size(n) of an array:");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter an element for array:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Unsorted Array: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i] + " ");
+        }
+
+        getMax(arr);
+        Counting_Sort(arr);
+    }
+
+    public static void Counting_Sort(int[] arr) {
+        int n;
+        int m = getMax(int[]arr);
+        int c[] = new int[m + 1];
+        int b[] = new int[n];
+
+        // intialize all element with 0
+        for (int i = 0; i <= m; i++) {
+            c[i] = 0;
+        }
+
+        // count element and increase this...
+        for (int i = 0; i < n; i++) {
+            c[arr[i]]++;
+        }
+
+        // commulative sum
+        for (int i = 0; i < m; i++) {
+            c[i] = c[i] + c[i - 1];
+        }
+
+        // store elemnts with reverse loop
+        for (int i = n - 1; i >= 0; i--) {
+            b[c[arr[i]] - 1] = arr[i];
+            c[arr[i]]--;
+        }
+    }
+
+    // find largest element
+    public static void getMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        System.out.println("Largest Element in given array is : " + max);
+    }
+}
