@@ -41,7 +41,7 @@ public class CountingSort {
             c[i] = c[i] + c[i - 1];
         }
 
-        // store elemnts with reverse loop
+        // store elements with reverse loop
         for (int i = n - 1; i >= 0; i--) {
             b[c[arr[i]] - 1] = arr[i];
             c[arr[i]]--;
